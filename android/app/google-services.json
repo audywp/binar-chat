@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "424710010296",
+    "firebase_url": "https://binar-chat-f9f5d-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "binar-chat-f9f5d",
+    "storage_bucket": "binar-chat-f9f5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424710010296:android:7de015d173f75beaaacb4d",
+        "android_client_info": {
+          "package_name": "com.binarmessages"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424710010296-m6mndpigl1nug7m89c96brljpo4ciorb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.binarmessages",
+            "certificate_hash": "17d5bae26d8515c7a92cfe214f40be9fa2d7f063"
+          }
+        },
+        {
+          "client_id": "424710010296-o8h5hcvm02s3gf8vhcgvae6ns3m56jd7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.binarmessages",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "424710010296-kg789jsrrt5v4691d87hu8l0a31umbrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxSduPAFxXqLmnJE2dw_cmXOlTP133z8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424710010296-kg789jsrrt5v4691d87hu8l0a31umbrj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
