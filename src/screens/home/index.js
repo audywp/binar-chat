@@ -1,4 +1,4 @@
-import {View, StatusBar, StyleSheet, Text} from 'react-native';
+import {View, StatusBar, StyleSheet, Text, RefreshControl} from 'react-native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
@@ -21,6 +21,7 @@ export default function Search() {
   const dispatch = useDispatch();
   const {_user = {email: ''}} = useSelector(state => state.user);
   const [Loading, setLoading] = useState(true);
+  const [refresh, setRefresh] = useState(false);
   const [data, setData] = useState([]);
 
   const saveSelectedPerson = payload => {
@@ -38,6 +39,7 @@ export default function Search() {
     } catch (error) {
       console.log(error);
     } finally {
+      setRefresh(false);
       setLoading(false);
     }
   }, [_user.email]);
@@ -91,6 +93,11 @@ export default function Search() {
     );
   };
 
+  const handleOnReresh = () => {
+    setRefresh(true);
+    getAllData();
+  };
+
   if (Loading) {
     return <LoadingIndicator />;
   }
@@ -99,6 +106,9 @@ export default function Search() {
     <SafeAreaView style={GlobalStyle.scrollview}>
       <StatusBar hidden />
       <FlatList
+        refreshControl={
+          <RefreshControl refreshing={refresh} onRefresh={handleOnReresh} />
+        }
         data={data}
         keyExtractor={item => item._id}
         renderItem={RenderItem}

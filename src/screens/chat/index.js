@@ -14,7 +14,6 @@ function ChatRoom() {
     try {
       myDb.ref(`users/${selectedUser._id}`).on('value', res => {
         const userData = res.val();
-        console.log(userData, 'userData');
         if (userData.chatRoom) {
           setUser(userData);
         } else {
@@ -38,14 +37,20 @@ function ChatRoom() {
       await myDb.ref(`users/${_user._id}`).update({
         chatRoom: [
           ...user.chatRoom,
-          {...sendedMessage[0], createdAt: new Date()},
+          {
+            ...sendedMessage[0],
+            idx: user.chatRoom?.length + 1,
+          },
         ],
       });
 
       await myDb.ref(`users/${selectedUser._id}`).update({
         chatRoom: [
           ...user.chatRoom,
-          {...sendedMessage[0], createdAt: new Date()},
+          {
+            ...sendedMessage[0],
+            idx: user.chatRoom.length + 1,
+          },
         ],
       });
 
@@ -79,16 +84,13 @@ function ChatRoom() {
     ],
   );
 
-  console.log(user);
-
   return (
     <GiftedChat
-      messages={user?.chatRoom?.sort(function (a, b) {
-        return new Date(b.createdAt) - new Date(a.createdAt);
-      })}
+      messages={user?.chatRoom?.reverse()}
       onSend={sendedMessage => {
         onSend(sendedMessage);
       }}
+      optionTintColor="red"
       user={{
         _id: _user._id,
         name: _user.displayName,

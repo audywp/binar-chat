@@ -78,12 +78,12 @@ export default function Register() {
           };
           await myDb.ref(`users/${res.user.uid}`).set(payload);
           dispatch(setDataUser(payload));
+          navigate('Home');
         }
       }
     } catch (error) {
       console.log(error);
     } finally {
-      navigate('Home');
       setLoading(false);
     }
   };
